@@ -181,25 +181,25 @@ console.log("HOMEWORK");
 
 //  3333333333333333333
 
-const bitGirls = ["Edita", "Lina", "Brigita", "Deimante", "Juste"];
-const cats = ["Murka", "Rainius", "Meilute", "Bosas", "Dickis"];
+// const bitGirls = ["Edita", "Lina", "Brigita", "Deimante", "Juste"];
+// const cats = ["Murka", "Rainius", "Meilute", "Bosas", "Dickis"];
 
-// 1
+// // 1
 
-bitGirls.unshift("Nauseda");
-console.log(bitGirls);
+// bitGirls.unshift("Nauseda");
+// console.log(bitGirls);
 
-const bitCats = [];
+// const bitCats = [];
 
-for (let i = 0; i < cats.length; i++) {
-  const or = ["Storas", "Nestoras"];
-  const fatOrNot = or[Math.floor(Math.random() * or.length)];
+// for (let i = 0; i < cats.length; i++) {
+//   const or = ["Storas", "Nestoras"];
+//   const fatOrNot = or[Math.floor(Math.random() * or.length)];
 
-  bitCats.push([cats[i], fatOrNot]);
+//   bitCats.push([cats[i], fatOrNot]);
 
-  const includes = bitCats.filter((a) => a.includes("Storas"));
-  console.log(includes.length);
-}
+//   const includes = bitCats.filter((a) => a.includes("Storas"));
+//   console.log(includes.length);
+// }
 
 // const sorted = bitCats.sort(function (a, b) {
 //   return a[1].localeCompare(b[1]);
@@ -231,3 +231,64 @@ for (let i = 0; i < cats.length; i++) {
 // }
 
 // console.log(happyCats);
+
+// 444444444444444444444444
+
+// const btn = document.querySelector(".button");
+
+// const h1 = document.querySelector(".h1");
+
+// const h2 = document.querySelector(".h2");
+
+// btn.addEventListener("click", function () {
+//   function rand(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+//   }
+//   h1.innerText = rand(1, 6);
+//   h2.innerText = rand(1, 6);
+
+//   if (h1.innerText === h2.innerText) {
+//     h1.style.color = "red";
+//     h2.style.color = "red";
+//   }
+// });
+
+// 2
+
+// const btn = document.querySelector("button");
+// const h3 = document.querySelector("h3");
+
+// const num = [];
+
+// btn.addEventListener("click", function () {
+//   function rand(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+//   }
+
+//   num.push(rand(1, 10));
+
+//   console.log(num);
+
+//   const all = num.reduce((acc, num) => acc + num);
+//   console.log(all);
+// });
+
+//
+
+// 3
+
+// const africa = ["Zebras", "Raganosis", "Begemotas"];
+
+// const ul = document.querySelector("ul");
+
+// for (let i = 0; i < africa.length; i++) {
+//   const new1 = document.createElement("li");
+//   new1.innerHTML = africa[i];
+//   ul.appendChild(new1);
+// }
+
+// 4
