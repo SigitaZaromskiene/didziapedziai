@@ -326,25 +326,98 @@ console.log("HOMEWORK");
 //   //   newStr[1].style.background = "blue";
 // }
 
-let str = "INV";
-for (let i = 1; i < 4; i++) {
-  str = str + i;
+// NEISPRESTAS?????
+// function rand(min, max) {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+// }
+
+// const products = [
+//   "Fenas",
+//   "Dviratis",
+//   "Maike",
+//   "agurkas",
+//   "Lapas",
+//   "Labas",
+//   "Kurmis",
+//   "Namas",
+//   "Robotas",
+//   "Stalas",
+// ];
+
+// let str = "INV";
+// for (let i = 1; i < 4; i++) {
+//   str = str + i;
+// }
+// console.log(str);
+
+// const randomToFixed = rand(1, 100).toFixed(2);
+// const random = rand(1, 100);
+
+// const sum = randomToFixed * products.amount;
+
+// const randomArr = Math.floor(Math.random() * 10 + 1);
+// console.log(randomArr);
+
+// const array = new Array(100).fill({
+//   number: str,
+//   products: new Array(randomArr).fill({
+//     title: products[Math.floor(Math.random() * products.length)],
+//     price: randomToFixed,
+//     amount: random,
+//     total: Number(randomToFixed) * random,
+//   }),
+
+//   total: "",
+//   vat: "",
+//   grandTotal: "",
+// });
+// console.log(array);
+
+const balls = [];
+
+class ColorBall {
+  constructor(color, number) {
+    this.color = color;
+    this.number = number;
+  }
 }
-console.log(str);
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
+const try1 = new ColorBall("green", 22);
+balls.push(try1);
 
-getRandomIntInclusive(1, 10);
+const try2 = new ColorBall("red", 22);
+balls.push(try2);
 
-const array = new Array(100).fill({
-  number: str,
-  products: [{ title: "la", price: "1", amount: 1, total: "" }],
-  total: "",
-  vat: "",
-  grandTotal: "",
+console.log(balls);
+
+const color = document.querySelector(".color");
+const number = document.querySelector(".number");
+const create = document.querySelector(".create");
+const dlt = document.querySelector(".delete");
+
+create.addEventListener("click", function () {
+  this.color = color.value;
+  this.number = number.value;
+
+  const try3 = new ColorBall(color.value, number.value);
+  console.log(try3);
+  balls.push(try3);
+  console.log(balls);
+
+  const header = document.querySelector("header");
+
+  const domEl = document.createElement("li");
+  domEl.innerHtml = balls;
+
+  header.appendChild(domEl);
+  const { color } = balls;
+  domEl.style.color = color;
 });
-console.log(array);
+
+console.log(balls);
+dlt.addEventListener("click", function () {
+  balls.shift();
+  console.log(balls);
+});
