@@ -292,3 +292,59 @@ console.log("HOMEWORK");
 // }
 
 // 4
+
+// const input1 = document.querySelector(["input"]);
+// const input2 = document.querySelector(".input2");
+// const plus = document.querySelector(".plus");
+// const minus = document.querySelector(".minus");
+// const text = document.querySelector(".la");
+
+// plus.addEventListener("click", function () {
+//   text.innerHTML = Number(input1.value) + Number(input2.value);
+// });
+
+// minus.addEventListener("click", function () {
+//   text.innerHTML = Number(input1.value) - Number(input2.value);
+// });
+
+// 5
+
+// const australia = ["Kengura", "Dingo", "Strutis", "Atsirado"];
+
+// const ul = document.querySelector("ul");
+
+// let newStr = "";
+// for (let i = 0; i < australia.length; i++) {
+//   const newEl = document.createElement("li");
+//   newEl.innerHTML = australia[i];
+
+//   newStr += australia[i] + " ";
+//   console.log(newEl);
+
+//   ul.innerHTML = newStr;
+
+//   //   newStr[1].style.background = "blue";
+// }
+
+let str = "INV";
+for (let i = 1; i < 4; i++) {
+  str = str + i;
+}
+console.log(str);
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+getRandomIntInclusive(1, 10);
+
+const array = new Array(100).fill({
+  number: str,
+  products: [{ title: "la", price: "1", amount: 1, total: "" }],
+  total: "",
+  vat: "",
+  grandTotal: "",
+});
+console.log(array);
