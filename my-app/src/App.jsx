@@ -1,14 +1,30 @@
-import "./App.css";
-import Racoon from "./components/006/Racoon";
-import Cat from "./components/006/Cat";
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AnimalLi from "./components/008/AnimalLi";
+
+const data = [
+  { id: 1, animal: "Racoon", color: "crimson", bold: true },
+  { id: 4, animal: "Fox", color: "coral", bold: true },
+  { id: 17, animal: "Moose", color: "red", bold: false },
+  { id: 1, animal: "Unicorn", color: "yellow", bold: true },
+];
 
 function App() {
   return (
-    <header className="App">
-      <Racoon></Racoon>
-      <Racoon></Racoon>
-      <Cat></Cat>
-    </header>
+    <div className="App">
+      <header className="App">
+        <div className="card">
+          <div className="card-header">
+            <h2>Animals list</h2>
+          </div>
+          <ul className="list-group list-group-flush">
+            {data.map((a, i) => (
+              <AnimalLi key={a.id} animal={a} index={i}></AnimalLi>
+            ))}
+          </ul>
+        </div>
+      </header>
+    </div>
   );
 }
 

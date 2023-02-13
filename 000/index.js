@@ -391,47 +391,92 @@ const products = [
   "Stalas",
 ];
 
-const numbers = [];
-const everyArray = [];
-const randomProductsArr = [];
-const randomPrice = [];
-const randomAmount = [];
+// const numbers = [];
+// const everyArray = [];
+// const randomProductsArr = [];
+// const randomPrice = [];
+// const randomAmount = [];
 
-for (let i = 0; i < 100; i++) {
-  const pad = i + 1;
-  const numberStart = "INV" + pad;
-  numbers.push(numberStart);
+// const pad = i + 1;
+// const numberStart = "INV" + pad;
+// numbers.push(numberStart);
 
-  const randomArr = Math.floor(Math.random() * 10 + 1);
-  everyArray.push(randomArr);
+// const randomArr = Math.floor(Math.random() * 10 + 1);
+// everyArray.push(randomArr);
 
-  const randomProduct = products[Math.floor(Math.random() * products.length)];
-  randomProductsArr.push(randomProduct);
-  console.log(randomProductsArr);
+// const randomProduct = products[Math.floor(Math.random() * products.length)];
+// randomProductsArr.push(randomProduct);
+// console.log(randomProductsArr);
 
-  const random = rand(1, 100);
+// const random = rand(1, 100);
 
-  randomAmount.push(random);
+// randomAmount.push(random);
 
-  const randomToFixed = rand(1, 100).toFixed(2);
-  randomPrice.push(randomToFixed);
-}
+// const randomToFixed = rand(1, 100).toFixed(2);
+// randomPrice.push(randomToFixed);
 
 // const sum = randomToFixed * products.amount;
 
-const array = new Array(100).fill().map((e, i) => {
-  return {
-    number: numbers[i],
-    products: new Array(everyArray[i]).fill({
-      title: randomProductsArr[i],
-      price: randomPrice[i],
-      amount: randomAmount[i],
-      // total: Number(randomToFixed) * random,
-    }),
+// const saskaitos = [...new Array(100)].map((_, i) => {
+//   const number = `INV${i < 9 ? "00" : i < 99 ? "0" : ""}${i + 1}`;
+//   const productsBought = [...Array(rand(1, 10))].map((_) => {
+//     const title = products[rand(0, products.length - 1)];
+//     const price = rand(100, 10000) / 100;
+//     const amount = rand(1, 20);
+//     const total = Number((price * amount).toFixed(2));
+//     return { title, price, amount, total };
+//   });
+//   const total = productsBought.reduce((acc, cur) => acc + cur.total, 0);
+//   const vat = Number((total * 0.21).toFixed(2));
+//   const grandTotal = total + vat;
+//   return { number, productsBought, total, vat, grandTotal };
+// });
 
-    total: "",
-    vat: "",
-    grandTotal: "",
-  };
-});
-console.log(array);
+// console.log(saskaitos);
+
+// const masyvasSaskaitos = [...new Array(100)].map((e, i) => {
+//   const number = `INV${i < 9 ? "00" : i < 99 ? "0" : ""}${i + 1}`;
+//   const productsArr = [...new Array(rand(1, 10))].map((e, i) => {
+//     const title = products[rand(0, products.length)];
+//     const price = rand(100, 1000) / 100;
+//     const amount = rand(1, 20);
+//     const total = Number((price * amount).toFixed(2));
+
+//     return { total, title, amount, price };
+//   });
+//   const total = productsArr.reduce((acc, a) => acc + a.total, 0);
+
+//   const vat = Number((total / 21) * 100).toFixed(2);
+//   const grandTotal = vat + total;
+//   return { number, productsArr, total, vat, grandTotal };
+// });
+
+// console.log(masyvasSaskaitos);
+
+// const grandTotalAll = masyvasSaskaitos.reduce(
+//   (acc, cur) => acc + cur.grandTotal,
+//   0
+// );
+// console.log(grandTotalAll.toFixed(2));
+
+// const productsBoughtAll = products.map((product) => {
+//   const amount = saskaitos.reduce(
+//     (acc, cur) =>
+//       acc +
+//       cur.productsBought
+//         .filter((p) => p.title === product)
+//         .reduce((acc, cur) => acc + cur.amount, 0),
+//     0
+//   );
+//   const total = saskaitos.reduce(
+//     (acc, cur) =>
+//       acc +
+//       cur.productsBought
+//         .filter((p) => p.title === product)
+//         .reduce((acc, cur) => acc + cur.total, 0),
+//     0
+//   );
+//   return product + " " + amount + " " + total.toFixed(2);
+// });
+
+// productsBoughtAll.forEach((product, index) => console.log(index + 1, product));
