@@ -46,3 +46,53 @@ h1 {
     background-color: green;
   }
 }
+
+// button
+$buttonBlue: skyblue;
+$buttonGray: gray;
+$buttonCoral: coral;
+$buttonPink: pink;
+
+button {
+  display: inline-block;
+  padding: 7px;
+  margin: 20px 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: $buttonGray;
+  color: white;
+
+  &.blue {
+    background-color: $buttonBlue;
+    color: #ffffff;
+    &:hover {
+      background-color: darken($buttonBlue, 20%);
+    }
+  }
+  &.pink {
+    background-color: $buttonPink;
+    color: #ffffff;
+    &:hover {
+      background-color: darken($buttonPink, 20%);
+    }
+  }
+  &.coral {
+    background-color: $buttonCoral;
+    color: #ffffff;
+    &:hover {
+      background-color: darken($buttonCoral, 20%);
+    }
+  }
+}
+
+button:hover {
+  background-color: #4095c6;
+}
