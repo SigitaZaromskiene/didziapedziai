@@ -1,66 +1,38 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
 import { useState } from "react";
-import Sq from "./components/009/Sq";
-import randomColor from "./functions/randomColor";
-import { v4 as uuidv4 } from "uuid";
+import "./App.scss";
+import AddButton from "./components/010/Buttons/AddButton";
+import ClearButton from "./components/010/Buttons/ClearButton";
+import ColorButton from "./components/010/Buttons/ColorButton";
+import DefaultSortButton from "./components/010/Buttons/DefaultSortButton";
+import Filter500Button from "./components/010/Buttons/FilterButton";
+import ShowAllButton from "./components/010/Buttons/ShowAllButton";
+import SortButton from "./components/010/Buttons/SortButton";
+import SpinAllButton from "./components/010/Buttons/SpinAllButton";
+import StopSpinButton from "./components/010/Buttons/StopSpinButton";
+import Sq from "./components/010/Sq";
 
 function App() {
   const [sq, setSq] = useState([]);
 
-  const addSq = () => {
-    setSq((prevState) => [
-      ...prevState,
-      { id: uuidv4(), color: randomColor() },
-    ]);
-  };
-
-  const delSq = (id) => {
-    setSq((prevState) => prevState.filter((s) => s.id !== id));
-  };
-  // const [sqColot, setSqColor] = useState("green");
-  // const [count, setCount] = useState(0);
-
-  // const changeColor = () => {
-  //   setSqColor("red");
-  // };
-
-  // const changeColor2 = () => {
-  //   setSqColor((prevState) => (prevState === "red" ? "purple" : null));
-  // };
-
-  // const addOne = () => {
-  //   setCount((prevState) => prevState + 1);
-  // };
-
   return (
     <div className="App">
-      <header className="App">
+      <header className="App-header">
         <div className="sq-bin">
-          {/* {sq.map((s, i) => (
-            <Sq key={i} s={s} i={i}></Sq>
-          ))} */}
-          {sq.map((s, i) => (
-            <div key={i}></div>
-          ))}
-          onClick={() => delSq(sq.id)}
-          <button className="red" onClick={addSq}>
-            Add sq
-          </button>
-          {/* <div className="sq-bin">
-          <div className="sq" style={{ backgroundColor: sqColot }}></div>
-
-          <div className="sq">{count}</div>
+          {sq.map((s, i) =>
+            s.show ? <Sq key={i} s={s} i={i} setSq={setSq} /> : null
+          )}
         </div>
-        <button className="blue" onClick={changeColor}>
-          CHANGE
-        </button>
-        <button className="pink" onClick={addOne}>
-          ADD ONE
-        </button>
-        <button className="pink" onClick={changeColor2}>
-          CHANGE 2
-        </button> */}
+        <div className="sq-bin">
+          <AddButton setSq={setSq} classes="blue" />
+          <ClearButton setSq={setSq} classes="red" />
+          <ColorButton setSq={setSq} classes="coral" />
+          <StopSpinButton setSq={setSq} classes="" />
+          <SpinAllButton setSq={setSq} classes="" />
+          <SortButton setSq={setSq} classes="blue" />
+          <DefaultSortButton setSq={setSq} classes="blue" />
+          <Filter500Button setSq={setSq} classes="red" />
+          <ShowAllButton setSq={setSq} classes="red" />
         </div>
       </header>
     </div>

@@ -1,15 +1,14 @@
-function Sq(props) {
+function Sq({ s, i }) {
   return (
-    <div className="sq-bin">
-      <div
-        className="sq"
-        style={{
-          backgroundColor: props.s.color,
-          transform: props.index % 2 === 0 ? "rotate(-2deg)" : null,
-        }}
-      >
-        {props.index}
-      </div>
+    <div
+      className="sq"
+      style={{
+        backgroundColor: s.color + "70",
+        borderColor: s.color,
+        // transform: i % 2 ? 'rotate(2deg)' : 'rotate(-2deg)'
+      }}
+    >
+      {i}
     </div>
   );
 }

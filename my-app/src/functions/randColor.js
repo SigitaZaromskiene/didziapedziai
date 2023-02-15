@@ -1,4 +1,4 @@
-function randomColor() {
+function randColor() {
   return (
     "#" +
     Math.floor(Math.random() * 16777215)
@@ -7,4 +7,4 @@ function randomColor() {
   );
 }
 
-export default randomColor;
+export default randColor;
