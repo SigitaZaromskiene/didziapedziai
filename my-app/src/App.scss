@@ -164,3 +164,52 @@ button {
     }
   }
 }
+.niam {
+  background-color: yellowgreen;
+}
+
+.circle {
+  width: 300px;
+  height: 300px;
+  border: 10px dashed orange;
+  border-radius: 50%;
+  margin: 40px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: App-logo-spin infinite 15s linear;
+
+  .circle-number {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    &.n1 {
+      background-color: darkorange;
+      top: 120px;
+      left: 10px;
+    }
+
+    &.n2 {
+      background-color: aqua;
+      top: 100px;
+      left: 10px;
+    }
+    &.n3 {
+      background-color: darkblue;
+      top: 90px;
+      left: 10px;
+    }
+    &.n4 {
+      background-color: darkcyan;
+      top: 100px;
+      left: 10px;
+    }
+  }
+}
