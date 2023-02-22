@@ -213,3 +213,67 @@ button {
     }
   }
 }
+
+.input-bin {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 100%;
+  align-items: center;
+  max-width: 500px;
+  &.red {
+    background-color: crimson;
+  }
+
+  label {
+    padding: 0 0 15px 0;
+  }
+  input {
+    font-size: 0.8em;
+    padding: 2px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  select {
+    font-size: 0.8em;
+    padding: 2px 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  button {
+    max-width: 150px;
+  }
+
+  .cb-bin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    label.cb {
+      font-size: 0.9rem;
+      padding: 0 15px 0 5px;
+      cursor: pointer;
+      color: darkcyan;
+    }
+
+    input {
+      display: none;
+    }
+    input:checked + label.cb {
+      color: white;
+    }
+  }
+}
