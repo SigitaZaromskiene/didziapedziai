@@ -19,4 +19,16 @@ export const create = (key, data) => {
   write(key, allData);
 };
 
-export default localStorage;
+export const destroy = (key, id) => {
+  const allData = read(key);
+  const deletedData = allData.filter((d) => id !== d.id);
+  write(key, deletedData);
+};
+
+export const edit = (key, data, id) => {
+  const allData = read(key);
+  const editedData = allData.map((d) =>
+    id === d.id ? { ...d, ...data, id: id } : { ...d }
+  );
+  write(key, editedData);
+};
