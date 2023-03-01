@@ -1,7 +1,7 @@
 function Home(props) {
   return (
     <>
-      <h1>{props.title}</h1>
+      <h1 style={{ color: props.color }}>{props.title}</h1>
       <h3>home page</h3>
     </>
   );
