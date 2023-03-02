@@ -1,83 +1,35 @@
-import { useEffect, useState } from "react";
-import Create from "./components/Dices-Server/Create";
-import List from "./components/Dices-Server/List";
-import "./components/Dices-Server/style.scss";
-import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
-
-const URL = "http://localhost:3003/dices";
+import "./App.scss";
+import BoxLarge from "./components/018/BoxLarge";
+import { useState } from "react";
+import rand from "./functions/rand";
+import ContextData from "./components/018/ContextData";
 
 function App() {
-  const [lastUpdate, setLastUpdate] = useState(Date.now());
-  const [list, setList] = useState(null);
-  const [createData, setCreateData] = useState(null);
-  const [deleteModal, setDeleteModal] = useState(null);
-  const [deleteData, setDeleteData] = useState(null);
-  const [editModal, setEditModal] = useState(null);
-  const [editData, setEditData] = useState(null);
-  const [messages, setMessages] = useState(null);
+  const [sq1, setSq1] = useState([]);
+  const [sq2, setSq2] = useState([]);
 
-  useEffect(() => {
-    axios.get(URL).then((res) => {
-      setList(res.data);
-    });
-  }, [lastUpdate]);
+  const addHandler = () => {
+    setSq1((s) => [rand(100, 999), ...s]);
+  };
 
-  useEffect(() => {
-    if (null === createData) {
-      return;
-    }
-    // pazadas
-    const promiseId = uuidv4();
-    setList((d) => [...d, { ...createData, promiseId }]);
-
-    // serveris
-    axios.post(URL, { ...createData, promiseId }).then((res) => {
-      setList((d) =>
-        d.map((d) =>
-          res.data.promiseId === d.promiseId
-            ? { ...d, id: res.data.id, promiseId: null }
-            : { ...d }
-        )
-      );
-      console.log(res.data);
-    });
-  }, [createData]);
-
-  useEffect(() => {
-    if (null === deleteData) {
-      return;
-    }
-    axios.delete(URL + "/" + deleteData.id).then((res) => {
-      console.log(res.data);
-      setLastUpdate(Date.now());
-    });
-  }, [deleteData]);
-
+  const addHandler1 = () => {
+    setSq2((s) => [rand(100, 999), ...s]);
+  };
   return (
-    <>
-      <div className="dices">
-        <div className="content">
-          <div className="left">
-            <Create setCreateData={setCreateData} />
-          </div>
-          <div className="right">
-            <List
-              list={list}
-              setDeleteModal={setDeleteModal}
-              deleteModal={deleteModal}
-              setDeleteData={setDeleteData}
-              editModal={editModal}
-              setEditModal={setEditModal}
-              setEditData={setEditData}
-            />
-          </div>
-        </div>
+    <ContextData.Provider value={sq2}>
+      <div className="App">
+        <header className="App-header">
+          <h1>Context</h1>
+          <BoxLarge sq1={sq1} />
+          <button className="coral" onClick={addHandler}>
+            Add
+          </button>
+          <button className="coral" onClick={addHandler1}>
+            Add
+          </button>
+        </header>
       </div>
-      {
-        // messages && <Messages messages={messages} />
-      }
-    </>
+    </ContextData.Provider>
   );
 }
 
