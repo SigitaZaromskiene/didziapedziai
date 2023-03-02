@@ -1,11 +1,11 @@
 import BoxSmall from "./BoxSmall";
 
-function BoxMid(props) {
+function BoxMid() {
   return (
     <>
       <div className="box-area">
-        <div className="title">Small box</div>
-        <BoxSmall sq1={props.sq1}></BoxSmall>
+        <div className="title">MIDDLE BOX</div>
+        <BoxSmall />
       </div>
     </>
   );

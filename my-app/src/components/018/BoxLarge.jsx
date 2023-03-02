@@ -1,11 +1,11 @@
 import BoxMid from "./BoxMid";
 
-function BoxLarge(props) {
+function BoxLarge() {
   return (
     <>
       <div className="box-area">
-        <div className="title">Large box</div>
-        <BoxMid sq1={props.sq1}></BoxMid>
+        <div className="title">LARGE BOX</div>
+        <BoxMid />
       </div>
     </>
   );
