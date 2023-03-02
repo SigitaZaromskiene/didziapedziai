@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.scss";
-import BoxLarge from "./Components/018/BoxLarge";
-import Buttons from "./Components/018/Buttons";
-import { GlobalSqContextProvider } from "./Components/018/GlobalSqContext";
-import GlobalUserContext from "./Components/018/GlobalUserContext";
-import rand from "./Functions/rand";
+import BoxLarge from "./components/018/BoxLarge";
+import Buttons from "./components/018/Buttons";
+import { GlobalSqContextProvider } from "./components/018/GlobalSqContext";
+import GlobalUserContext from "./components/018/GlobalUserContext";
+import rand from "./functions/rand";
 
 const users = ["Bebras", "Zebras", "Ūdra"];
 

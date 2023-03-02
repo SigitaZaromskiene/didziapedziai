@@ -1,5 +1,14 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const GlobalSqContext = createContext();
+export const GlobalSqContext = createContext();
 
-export default GlobalSqContext;
+export const GlobalSqContextProvider = ({ children }) => {
+  const [sq1, setSq1] = useState([]);
+  const [sq2, setSq2] = useState([]);
+
+  return (
+    <GlobalSqContext.Provider value={{ sq1, sq2, setSq1, setSq2 }}>
+      {children}
+    </GlobalSqContext.Provider>
+  );
+};

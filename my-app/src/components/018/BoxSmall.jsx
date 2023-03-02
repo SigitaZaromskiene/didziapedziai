@@ -1,7 +1,4 @@
 import { useContext } from "react";
-import ContextData from "./GlobalSqContext";
-
-import { useContext } from "react";
 import { GlobalSqContext } from "./GlobalSqContext";
 import GlobalUserContext from "./GlobalUserContext";
 
