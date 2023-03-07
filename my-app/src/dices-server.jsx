@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Create from "./components/Dices-Server/Create";
-import List from "./components/Dices-Server/List";
-import "./components/Dices-Server/style.scss";
+import Create from "./Components/Dices-Server/Create";
+import List from "./Components/Dices-Server/List";
+import "./Components/Dices-Server/style.scss";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import Messages from "./Components/Dices/Messages";
 
 const URL = "http://localhost:3003/dices";
 
@@ -40,7 +41,7 @@ function App() {
             : { ...d }
         )
       );
-      console.log(res.data);
+      msg(res.data.message.text, res.data.message.type);
     });
   }, [createData]);
 
@@ -51,8 +52,28 @@ function App() {
     axios.delete(URL + "/" + deleteData.id).then((res) => {
       console.log(res.data);
       setLastUpdate(Date.now());
+      msg(res.data.message.text, res.data.message.type);
     });
   }, [deleteData]);
+
+  useEffect(() => {
+    if (null === editData) {
+      return;
+    }
+    axios.put(URL + "/" + editData.id, editData).then((res) => {
+      console.log(res.data);
+      setLastUpdate(Date.now());
+      msg(res.data.message.text, res.data.message.type);
+    });
+  }, [editData]);
+
+  const msg = (text, type) => {
+    const uuid = uuidv4();
+    setMessages((m) => [...(m ?? []), { text, type, id: uuid }]);
+    setTimeout(() => {
+      setMessages((m) => m.filter((m) => uuid !== m.id));
+    }, 5000);
+  };
 
   return (
     <>
@@ -74,9 +95,7 @@ function App() {
           </div>
         </div>
       </div>
-      {
-        // messages && <Messages messages={messages} />
-      }
+      {messages && <Messages messages={messages} />}
     </>
   );
 }
